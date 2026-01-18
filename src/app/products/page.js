@@ -20,20 +20,27 @@ export default function ProductsPage() {
   const categories = ['Decor', 'Textiles', 'Lighting', 'Furniture', 'Art', 'Dining', 'Storage', 'Rugs'];
 
   useEffect(() => {
-    const loadProducts = async () => {
-      try {
-        const productsData = await import('../../data/products.json');
-        setProducts(productsData.default);
-        setFilteredProducts(productsData.default);
-      } catch (error) {
-        console.error('Error loading products:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadProducts = async () => {
+    try {
+      const res = await fetch("https://decor-culture-server.vercel.app/api/products");
 
-    loadProducts();
-  }, []);
+      if (!res.ok) {
+        throw new Error("Failed to fetch products");
+      }
+
+      const data = await res.json();
+      setProducts(data);
+      setFilteredProducts(data);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  loadProducts();
+}, []);
+
 
   useEffect(() => {
     let filtered = products;
@@ -245,63 +252,65 @@ export default function ProductsPage() {
               {/* Product Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 {currentProducts.map((product) => (
-                  <div
-                    key={product.id}
-                    className="group relative flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl"
-                  >
-                    <div className="aspect-[4/5] w-full overflow-hidden relative">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {product.originalPrice > product.price && (
-                        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
-                          Sale
-                        </div>
-                      )}
-                      {product.quantity < 10 && (
-                        <div className="absolute top-4 left-4 bg-white dark:bg-slate-800 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
-                          Limited Stock
-                        </div>
-                      )}
-                      <button className="absolute top-4 right-4 size-10 bg-white/90 dark:bg-slate-800/90 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-xl">♡</span>
-                      </button>
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                        <button
-                          onClick={() => handleAddToCart(product)}
-                          className="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2"
-                        >
-                          <span className="text-xl">🛒</span>
-                          Quick Add
-                        </button>
-                      </div>
-                    </div>
-                    <div className="p-6 flex flex-col gap-3">
-                      <p className="text-xs text-primary font-semibold uppercase tracking-wider">{product.category}</p>
-                      <h3 className="text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">
-                        {product.name}
-                      </h3>
-                      <div className="flex items-center gap-4 mt-2">
-                        <div className="flex items-baseline">
-                          <span className="text-xl font-bold text-slate-900 dark:text-slate-100" style={{ fontFamily: 'inherit' }}>৳</span>
-                          <span className="text-xl font-bold text-slate-900 dark:text-slate-100 ml-1">{formatPrice(product.price)}</span>
-                        </div>
+                  <Link key={product.id} href={`/products/${product.id}`}>
+                    <div className="group relative flex flex-col bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl cursor-pointer">
+                      <div className="aspect-[4/5] w-full overflow-hidden relative">
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
                         {product.originalPrice > product.price && (
-                          <div className="flex items-baseline">
-                            <span className="text-sm text-slate-400 line-through" style={{ fontFamily: 'inherit' }}>৳</span>
-                            <span className="text-sm text-slate-400 line-through ml-1">{formatPrice(product.originalPrice)}</span>
+                          <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                            Sale
                           </div>
                         )}
-                        <div className="flex items-center gap-1 text-amber-400 ml-auto">
-                          <span className="text-sm">★</span>
-                          <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{product.rating}</span>
+                        {product.quantity < 10 && (
+                          <div className="absolute top-4 left-4 bg-white dark:bg-slate-800 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
+                            Limited Stock
+                          </div>
+                        )}
+                        <button className="absolute top-4 right-4 size-10 bg-white/90 dark:bg-slate-800/90 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="text-xl">♡</span>
+                        </button>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleAddToCart(product);
+                            }}
+                            className="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2"
+                          >
+                            <span className="text-xl">🛒</span>
+                            Quick Add
+                          </button>
+                        </div>
+                      </div>
+                      <div className="p-6 flex flex-col gap-3">
+                        <p className="text-xs text-primary font-semibold uppercase tracking-wider">{product.category}</p>
+                        <h3 className="text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors">
+                          {product.name}
+                        </h3>
+                        <div className="flex items-center gap-4 mt-2">
+                          <div className="flex items-baseline">
+                            <span className="text-xl font-bold text-slate-900 dark:text-slate-100" style={{ fontFamily: 'inherit' }}>৳</span>
+                            <span className="text-xl font-bold text-slate-900 dark:text-slate-100 ml-1">{formatPrice(product.price)}</span>
+                          </div>
+                          {product.originalPrice > product.price && (
+                            <div className="flex items-baseline">
+                              <span className="text-sm text-slate-400 line-through" style={{ fontFamily: 'inherit' }}>৳</span>
+                              <span className="text-sm text-slate-400 line-through ml-1">{formatPrice(product.originalPrice)}</span>
+                            </div>
+                          )}
+                          <div className="flex items-center gap-1 text-amber-400 ml-auto">
+                            <span className="text-sm">★</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{product.rating}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
 
