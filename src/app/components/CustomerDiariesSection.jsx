@@ -30,7 +30,12 @@ export default function CustomerDiariesSection() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <a className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-8 py-3 hover:bg-primary hover:text-white transition-all rounded" href="#">
+          <a 
+            className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-8 py-3 hover:bg-primary hover:text-white transition-all rounded" 
+            href="https://www.instagram.com/decorandculture" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
             Follow us on Instagram
           </a>
         </div>

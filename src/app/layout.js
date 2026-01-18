@@ -1,5 +1,6 @@
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import 'react-toastify/dist/ReactToastify.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-display",

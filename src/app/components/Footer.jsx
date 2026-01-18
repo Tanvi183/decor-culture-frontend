@@ -1,15 +1,17 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle newsletter signup
-    console.log('Newsletter signup:', email);
-    setEmail('');
+    if (email.trim()) {
+      setEmail('');
+      toast.success('Thank you for subscribing!');
+    }
   };
 
   return (
@@ -24,7 +26,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Links */}
           <div>
             <h4 className="text-[10px] font-bold uppercase tracking-widest mb-8 text-white/50">Quick Links</h4>
             <ul className="space-y-4 text-xs">
@@ -52,6 +54,7 @@ export default function Footer() {
             <p className="text-xs text-slate-400 mb-6 leading-relaxed">
               Join our mailing list for updates on new collections and exclusive offers.
             </p>
+            
             <form onSubmit={handleSubmit} className="flex border border-slate-700 rounded">
               <input
                 className="bg-transparent border-none focus:ring-0 text-xs flex-1 px-4 py-3"

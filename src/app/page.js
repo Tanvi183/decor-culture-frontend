@@ -12,6 +12,7 @@ import BathDecorSection from './components/BathDecorSection.jsx';
 import DeliverySection from './components/DeliverySection.jsx';
 import CustomerDiariesSection from './components/CustomerDiariesSection.jsx';
 import Footer from './components/Footer.jsx';
+import ToastProvider from './components/ToastProvider.jsx';
 
 export default function Home() {
   return (
@@ -35,6 +36,8 @@ export default function Home() {
       </main>
 
       <Footer />
+      
+      <ToastProvider />
     </div>
   );
 }
