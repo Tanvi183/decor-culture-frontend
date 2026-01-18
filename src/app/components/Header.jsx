@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Header() {
   const [cartCount, setCartCount] = useState(0);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
@@ -16,31 +19,45 @@ export default function Header() {
 
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="font-serif text-2xl lg:text-3xl italic font-bold tracking-tighter">
-              decor and culture
-            </h1>
+            <Link href="/">
+              <h1 className="font-serif text-2xl lg:text-3xl italic font-bold tracking-tighter cursor-pointer">
+                decor and culture
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-600 dark:text-slate-300">
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Decor & Pillows
-            </a>
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Bath Essentials
-            </a>
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Dining Decor
-            </a>
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Chair
-            </a>
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Lighting
-            </a>
-            <a className="hover:text-primary dark:hover:text-white transition-colors" href="#">
-              Rugs
-            </a>
+            <Link 
+              href="/" 
+              className={`transition-colors ${
+                pathname === '/' 
+                  ? 'text-primary dark:text-white border-b-2 border-primary pb-1' 
+                  : 'hover:text-primary dark:hover:text-white'
+              }`}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/about" 
+              className={`transition-colors ${
+                pathname === '/about' 
+                  ? 'text-primary dark:text-white border-b-2 border-primary pb-1' 
+                  : 'hover:text-primary dark:hover:text-white'
+              }`}
+            >
+              About Us
+            </Link>
+            <Link 
+              href="/contact" 
+              className={`transition-colors ${
+                pathname === '/contact' 
+                  ? 'text-primary dark:text-white border-b-2 border-primary pb-1' 
+                  : 'hover:text-primary dark:hover:text-white'
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Action Buttons */}
@@ -59,9 +76,9 @@ export default function Header() {
             </button>
 
             {/* User Account */}
-            <button className="hidden lg:block p-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white">
+            <Link href="/signin" className="p-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white">
               <span className="material-icons-outlined">person_outline</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
