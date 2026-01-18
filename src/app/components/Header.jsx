@@ -39,6 +39,16 @@ export default function Header() {
               Home
             </Link>
             <Link 
+              href="/products" 
+              className={`transition-colors ${
+                pathname === '/products' 
+                  ? 'text-primary dark:text-white border-b-2 border-primary pb-1' 
+                  : 'hover:text-primary dark:hover:text-white'
+              }`}
+            >
+              Products
+            </Link>
+            <Link 
               href="/about" 
               className={`transition-colors ${
                 pathname === '/about' 

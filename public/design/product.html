@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results: "Pillow" - Home and Beyond</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b7875",
+                        "background-light": "#f8f8f7",
+                        "background-dark": "#18181b",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .product-card:hover .quick-add-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#131616] dark:text-[#f8f8f7] transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Global Header -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-solid border-[#dee3e2] dark:border-zinc-800">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-4 flex items-center justify-between gap-8">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-3">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight">Home and Beyond</h2>
+</div>
+<nav class="hidden xl:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Shop</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Living</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Bedroom</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Decor</a>
+<a class="text-sm font-semibold text-red-600" href="#">Sale</a>
+</nav>
+</div>
+<div class="flex flex-1 max-w-md items-center">
+<label class="relative w-full group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#6d7e7d] material-symbols-outlined text-xl">search</span>
+<input class="w-full h-11 pl-11 pr-4 rounded-full border-none bg-zinc-100 dark:bg-zinc-800 text-sm focus:ring-2 focus:ring-primary/50 transition-all placeholder:text-[#6d7e7d]" placeholder="Search collection..." value="Pillow"/>
+</label>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">person</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors relative">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span>
+<span class="absolute -top-1 -right-1 size-5 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white dark:border-background-dark">3</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto w-full px-6 lg:px-12 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 mb-6">
+<a class="text-[#6d7e7d] text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-[#6d7e7d] material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-[#131616] dark:text-[#f8f8f7] text-sm font-medium">Search Results</span>
+</nav>
+<!-- Page Heading -->
+<div class="flex flex-col gap-2 mb-8">
+<h1 class="text-4xl font-extrabold tracking-tight">Search Results for "Pillow"</h1>
+<p class="text-[#6d7e7d] text-lg">124 high-quality items found</p>
+</div>
+<!-- Main Layout: Sidebar + Grid -->
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Filter Sidebar -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<div class="sticky top-28 flex flex-col gap-8 bg-white dark:bg-zinc-900 p-6 rounded-xl border border-[#dee3e2] dark:border-zinc-800">
+<div class="flex items-center justify-between border-b border-[#dee3e2] dark:border-zinc-800 pb-4">
+<h3 class="font-bold text-lg uppercase tracking-wider">Filters</h3>
+<button class="text-xs font-bold text-primary hover:underline">RESET</button>
+</div>
+<!-- Category -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="font-semibold text-sm">Category</span>
+<span class="material-symbols-outlined group-hover:text-primary">expand_more</span>
+</div>
+<div class="flex flex-col gap-2 pl-1">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded border-zinc-300 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">Throw Pillows</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-zinc-300 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">Bed Pillows</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="rounded border-zinc-300 text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-sm group-hover:text-primary transition-colors">Floor Cushions</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="font-semibold text-sm">Price Range</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="px-2">
+<div class="h-1 bg-zinc-200 dark:bg-zinc-700 rounded-full relative">
+<div class="absolute left-0 right-1/4 h-full bg-primary rounded-full"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 size-4 bg-white border-2 border-primary rounded-full shadow-sm"></div>
+<div class="absolute right-1/4 top-1/2 -translate-y-1/2 size-4 bg-white border-2 border-primary rounded-full shadow-sm"></div>
+</div>
+<div class="flex justify-between mt-4 text-xs font-medium text-[#6d7e7d]">
+<span>$0</span>
+<span>$250+</span>
+</div>
+</div>
+</div>
+<!-- Material -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="font-semibold text-sm">Material</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 rounded-full border border-[#dee3e2] dark:border-zinc-800 text-xs font-medium bg-primary/10 text-primary">Linen</span>
+<span class="px-3 py-1.5 rounded-full border border-[#dee3e2] dark:border-zinc-800 text-xs font-medium hover:border-primary transition-colors">Cotton</span>
+<span class="px-3 py-1.5 rounded-full border border-[#dee3e2] dark:border-zinc-800 text-xs font-medium hover:border-primary transition-colors">Velvet</span>
+<span class="px-3 py-1.5 rounded-full border border-[#dee3e2] dark:border-zinc-800 text-xs font-medium hover:border-primary transition-colors">Silk</span>
+</div>
+</div>
+<!-- Color -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between cursor-pointer group">
+<span class="font-semibold text-sm">Color</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="flex gap-3">
+<button class="size-6 rounded-full bg-[#E5E5E5] border border-zinc-300 ring-2 ring-offset-2 ring-primary ring-opacity-100"></button>
+<button class="size-6 rounded-full bg-[#3D3D3D] border border-zinc-300"></button>
+<button class="size-6 rounded-full bg-[#D4C4A8] border border-zinc-300"></button>
+<button class="size-6 rounded-full bg-[#7B8E8E] border border-zinc-300"></button>
+<button class="size-6 rounded-full bg-[#C78B8B] border border-zinc-300"></button>
+</div>
+</div>
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg hover:bg-[#2d5d5a] transition-all flex items-center justify-center gap-2">
+                            Apply Filters
+                        </button>
+</div>
+</aside>
+<!-- Grid Section -->
+<div class="flex-1 flex flex-col gap-6">
+<!-- Sorting Bar -->
+<div class="flex items-center justify-between border-b border-[#dee3e2] dark:border-zinc-800">
+<div class="flex gap-8">
+<a class="relative flex flex-col items-center justify-center border-b-2 border-primary py-4" href="#">
+<span class="text-sm font-bold">Featured</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-[#6d7e7d] py-4 hover:text-primary transition-colors" href="#">
+<span class="text-sm font-bold">Best Selling</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-[#6d7e7d] py-4 hover:text-primary transition-colors" href="#">
+<span class="text-sm font-bold">Price: Low to High</span>
+</a>
+<a class="flex flex-col items-center justify-center border-b-2 border-transparent text-[#6d7e7d] py-4 hover:text-primary transition-colors" href="#">
+<span class="text-sm font-bold">Price: High to Low</span>
+</a>
+</div>
+<div class="hidden sm:flex items-center gap-2">
+<button class="size-9 flex items-center justify-center bg-zinc-100 dark:bg-zinc-800 rounded">
+<span class="material-symbols-outlined text-xl">grid_view</span>
+</button>
+<button class="size-9 flex items-center justify-center text-[#6d7e7d] hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded">
+<span class="material-symbols-outlined text-xl">view_list</span>
+</button>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Product Card 1 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist beige textured linen pillow on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3pgt4DoLRZC7bTJ77uoETYUxc2Ls1R_xwF1LNMajme4YA_K4BMVFkD3mXAxvyryNV_mHvs9XQQgcrE_ChWE2_NvoDKMcmr9eJqwy2HHBqztnkeWfjyTK8q_PGApeaQEWmOVurPR2AmoXbTSCxqgra05j8L4XGUiuJ8lu-vV11cr9fciPSoQNuPqUX_UAU6KMtQsPZZreBFf59AGtoz7UdPZdYf6O3GIPbdFrEi_val5rsnuUKj4owWtqUauVpuz0pqtTHGLpVPQ"/>
+<div class="absolute top-4 left-4 bg-white dark:bg-zinc-900 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">New Arrival</div>
+<button class="absolute top-4 right-4 size-10 bg-white/90 dark:bg-zinc-900/90 backdrop-blur rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="material-symbols-outlined text-xl">favorite</span>
+</button>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-primary font-bold uppercase tracking-widest">Organic Collection</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Stone Washed Linen Cushion</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold">$58.00</span>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-xs font-bold text-[#131616] dark:text-[#f8f8f7]">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Deep forest green velvet decorative pillow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9svPbAhPUvKlfR9QW-MN7UF8MgbKD3_71j-G_ayqzHycO7pVAzt36NtFSVQgbMboNEVbzImyS9kTkCUTDzSeRzRH_DXntjE2suPcMqoy791cP_PH6f4dboGtxy6a3tRoaX6r7n-odn856dzn1B3ypFwnn1BRdNhn2ZbrVBUn2QgNb2VKiNg3I-X_Mryh_eJGrUEdtIAYUrIf7JIeU1Mq1OK_H3xF46W0xiZYcSBNHJQyiTht85SIrghD3rivgMbvLqthv3NtMSQ"/>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-[#6d7e7d] font-bold uppercase tracking-widest">Luxe Velvet</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Emerald Lumbar Pillow</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold text-primary">$45.00</span>
+<span class="text-sm text-[#6d7e7d] line-through">$65.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Hand-woven cream and charcoal patterned pillow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAs7K7vverVaj2Yk1j63wQbNsW2vjhYezeob2NpWIM9qDQRLf6nw6qMmk5x8ZE19R9xvrzJxjo8KKIkaZv2frG4EB9ohSka67YQt_qUH4vvVrHRPP9ayPvjKPHna2WvuNEsD5U64JcyXbPpXLgcMP8tgTuvenP9vXJ3L2UcyWLO4clCGABNdFrgb9KYVGP-Sid5h-GimnOaDY30cIvuLAbLPdJVEVpcojDbYi-VmtdgRr9-VCsfnPOdgH0MFAzcvXP4kHZjSuMkg"/>
+<div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">Limited Edition</div>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-[#6d7e7d] font-bold uppercase tracking-widest">Artisan Series</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Hand-Woven Geo Cushion</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold">$115.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Two fluffy white hotel-quality sleeping pillows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM3ImIxleCLcbeKZSvEWKyv-OlUp8Hwqf7MRxNiI1QXcE1_EkTj-oclIqa7E-qXckPW3zEUYYDkdHFpljdwf3-glHiX5lgn2pyCWt6EjQ-BY0M3YSP3f56P8bZW9MUcqZxGNT46864lFklqxytWslUEV1w69YE7nK_dypruZ_MH1dTSUmijoIlTFyNZxrrVZb-OwZDQ2LY-KK9s3SbEGD3YoKzuAKUJjfuVDZcGl0Llv8usOCZPzImFpDryfImGLC2GYq3eu3kzQ"/>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-[#6d7e7d] font-bold uppercase tracking-widest">Sleep Science</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Cloud-Soft Dream Pillow</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold">$75.00</span>
+<div class="flex items-center gap-1 text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1">star</span>
+<span class="text-xs font-bold text-[#131616] dark:text-[#f8f8f7]">5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Large round floor cushion in terracota cotton" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJPj_xZBjtH1TEc6nURZSi06CGLyrL60yWyvyEYjbIE6JuCHxv9YEmEiH19YF9q1wNW3ugtO6ZDQIx_ARlWRmV_TqLdmohFFC_K25uZ82JQdpWDeOnZ_R0xUJUIWdC5IfbP8MfeEy6J1gBHeScWNhKT8BG_M2I9Zf3VYL9NL5AvgDyZu0Uhgrajh6GBhj7OmxVv_f41mSJSGdSNb0uuRd1NTi1bhl_ZbRkvjV0uXll9xQ5rmD6nhyMTxMMRxr6cbdlHTQU8X7K3A"/>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-[#6d7e7d] font-bold uppercase tracking-widest">Boho Living</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Terracotta Floor Cushion</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold">$89.00</span>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="product-card group relative flex flex-col bg-white dark:bg-zinc-900 rounded-xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm hover:shadow-xl">
+<div class="aspect-[4/5] w-full overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Set of small decorative silk pillows in metallic tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTXRFpFywcmIXLqWrjqylBtH3IpZeHfzNmW9hopI9aKTsj6XWICWlKGeY_Dou-VEj11jvsvk5e_qcT3YAeaN7TOPgz6yS_xpX_AQ-CSFYIZko7M7yCGrYap3IGRrNOZfLV2eVSDZdSANCIDUwfkAn8rd_cvfXRkR5dyx4y1dkybgvIbmNkTErjM65cyM6W4UULYqRvhdbhuNtFfW5j0BvmB_vHA3RyMZDFlzcCnozQKAaiNvGUpQJKFtEpjDzrobGtnnRe-nQsRw"/>
+<div class="quick-add-btn absolute bottom-0 left-0 right-0 p-4 translate-y-full opacity-0 transition-all duration-300">
+<button class="w-full h-11 bg-primary text-white font-bold rounded-lg shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+                                        Quick Add
+                                    </button>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<p class="text-xs text-[#6d7e7d] font-bold uppercase tracking-widest">Modern Chic</p>
+<h3 class="text-lg font-bold leading-tight group-hover:text-primary transition-colors">Silk Shimmer Accent Set</h3>
+<div class="flex items-center gap-4 mt-1">
+<span class="text-xl font-extrabold">$140.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-center gap-2 mt-12 mb-20">
+<button class="size-10 rounded border border-[#dee3e2] dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 rounded bg-primary text-white flex items-center justify-center font-bold">1</button>
+<button class="size-10 rounded border border-[#dee3e2] dark:border-zinc-800 flex items-center justify-center font-bold hover:bg-zinc-100 transition-colors">2</button>
+<button class="size-10 rounded border border-[#dee3e2] dark:border-zinc-800 flex items-center justify-center font-bold hover:bg-zinc-100 transition-colors">3</button>
+<span class="px-2">...</span>
+<button class="size-10 rounded border border-[#dee3e2] dark:border-zinc-800 flex items-center justify-center font-bold hover:bg-zinc-100 transition-colors">12</button>
+<button class="size-10 rounded border border-[#dee3e2] dark:border-zinc-800 flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Partial for Context) -->
+<footer class="bg-white dark:bg-zinc-950 border-t border-[#dee3e2] dark:border-zinc-800 py-12">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col gap-4 max-w-sm">
+<div class="flex items-center gap-3">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Home and Beyond</h2>
+</div>
+<p class="text-sm text-[#6d7e7d] leading-relaxed">Elevate your living space with our curated collection of premium home goods and lifestyle essentials. Designed for modern living, crafted for lasting comfort.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase">Shop</h4>
+<nav class="flex flex-col gap-2 text-sm text-[#6d7e7d]">
+<a class="hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="hover:text-primary transition-colors" href="#">Sale</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase">Support</h4>
+<nav class="flex flex-col gap-2 text-sm text-[#6d7e7d]">
+<a class="hover:text-primary transition-colors" href="#">Shipping</a>
+<a class="hover:text-primary transition-colors" href="#">Returns</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 pt-12 mt-12 border-t border-[#dee3e2] dark:border-zinc-800 text-xs text-[#6d7e7d] flex justify-between">
+<p>© 2024 Home and Beyond Inc. All rights reserved.</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
