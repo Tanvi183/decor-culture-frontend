@@ -69,9 +69,7 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
-              <li><a className="hover:text-accent transition-colors" href="#">Shop All</a></li>
-              <li><a className="hover:text-accent transition-colors" href="#">Shipping Policy</a></li>
-              <li><a className="hover:text-accent transition-colors" href="#">Terms of Service</a></li>
+              <li><Link href="/products" className="hover:text-accent transition-colors">Shop All</Link></li>
             </ul>
           </div>
 
@@ -91,8 +89,6 @@ export default function Footer() {
                   Contact Us
                 </Link>
               </li>
-              <li><a className="hover:text-accent transition-colors" href="#">Track Order</a></li>
-              <li><a className="hover:text-accent transition-colors" href="#">Returns & Refunds</a></li>
               <li><a className="hover:text-accent transition-colors" href="#">FAQ</a></li>
             </ul>
           </div>

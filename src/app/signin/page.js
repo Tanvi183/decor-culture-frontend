@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import Header from '../components/Header.jsx';
 import ToastProvider from '../components/ToastProvider.jsx';
+import { auth } from '../../utils/auth';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ export default function SignIn() {
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -20,14 +22,54 @@ export default function SignIn() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.email && formData.password) {
-      console.log('Sign in:', formData);
-      toast.success('Welcome back! You have successfully signed in.', {
-        position: "top-right",
-        autoClose: 3000,
-      });
+      setIsLoading(true);
+      
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Store token and user data in cookies
+          auth.login(data.token, data.user);
+          
+          toast.success(`Welcome back, ${data.user.name}! You have successfully signed in.`, {
+            position: "top-right",
+            autoClose: 3000,
+          });
+          
+          // Redirect to dashboard after successful login
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 1500);
+        } else {
+          toast.error(data.message || 'Invalid credentials. Please try again.', {
+            position: "top-right",
+            autoClose: 3000,
+          });
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        toast.error('Something went wrong. Please try again.', {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } finally {
+        setIsLoading(false);
+      }
+      
       setFormData({ email: '', password: '' });
     }
   };
@@ -68,6 +110,20 @@ export default function SignIn() {
               <p className="text-slate-600 dark:text-slate-400 text-base">
                 Please enter your details to access your sanctuary.
               </p>
+              
+              {/* Demo Credentials */}
+              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+                <p className="text-blue-800 dark:text-blue-200 text-sm font-medium mb-1">Demo Credentials:</p>
+                <p className="text-blue-700 dark:text-blue-300 text-xs">Email: user@gmail.com</p>
+                <p className="text-blue-700 dark:text-blue-300 text-xs">Password: 123456</p>
+                <button 
+                  type="button"
+                  onClick={() => setFormData({ email: 'user@gmail.com', password: '123456' })}
+                  className="mt-2 px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700"
+                >
+                  Fill Demo Credentials
+                </button>
+              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
@@ -118,9 +174,17 @@ export default function SignIn() {
               {/* Primary Action */}
               <button
                 type="submit"
-                className="mt-4 flex w-full cursor-pointer items-center justify-center rounded-lg h-14 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                disabled={isLoading}
+                className="mt-4 flex w-full cursor-pointer items-center justify-center rounded-lg h-14 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Sign In
+                {isLoading ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Signing In...
+                  </div>
+                ) : (
+                  'Sign In'
+                )}
               </button>
             </form>
 

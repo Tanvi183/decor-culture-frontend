@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ExclusivesSection() {
   const products = [
@@ -32,9 +33,9 @@ export default function ExclusivesSection() {
             <h2 className="text-[10px] font-bold uppercase tracking-[0.4em] mb-2 text-slate-500">Curated Collection</h2>
             <h3 className="font-serif text-3xl">Decor and Culture Exclusives</h3>
           </div>
-          <a className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-6 py-2 hover:bg-primary hover:text-white transition-all" href="#">
+          <Link href="/products" className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-6 py-2 hover:bg-primary hover:text-white transition-all">
             View More
-          </a>
+          </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
           {products.map((product, index) => (

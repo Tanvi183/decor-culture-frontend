@@ -1,15 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { auth } from '../../utils/auth';
 
 export default function Dashboard() {
-  const [user] = useState({
-    name: 'Sana Ullah',
-    email: 'sana@example.com',
+  const [user, setUser] = useState({
+    name: 'User',
+    email: 'user@example.com',
     profileImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face'
   });
+
+  useEffect(() => {
+    // Get user data from cookies
+    const userData = auth.getUser();
+    if (userData) {
+      setUser(prev => ({
+        ...prev,
+        name: userData.name,
+        email: userData.email
+      }));
+    }
+  }, []);
 
   // Sample data for charts
   const pieData = [
@@ -51,10 +64,19 @@ export default function Dashboard() {
             </p>
           </div>
         </div>
-        <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#f2f3f2] dark:bg-[#2a2a2a] text-[#141514] dark:text-white font-bold text-sm hover:shadow-md transition-all">
-          <span className="material-symbols-outlined text-base">edit</span>
-          Edit Profile
-        </button>
+        <div className="flex gap-2">
+          <button className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#f2f3f2] dark:bg-[#2a2a2a] text-[#141514] dark:text-white font-bold text-sm hover:shadow-md transition-all">
+            <span className="material-symbols-outlined text-base">edit</span>
+            Edit Profile
+          </button>
+          <button 
+            onClick={auth.logout}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 font-bold text-sm hover:shadow-md transition-all"
+          >
+            <span className="material-symbols-outlined text-base">logout</span>
+            Logout
+          </button>
+        </div>
       </div>
 
       {/* Section Overview */}

@@ -37,6 +37,11 @@ export default function DashboardLayout({ children }) {
       label: 'My Profile'
     },
     {
+      href: '/dashboard/products',
+      icon: 'inventory_2',
+      label: 'Product Management'
+    },
+    {
       href: '/dashboard/payments',
       icon: 'credit_card',
       label: 'Payment Methods'

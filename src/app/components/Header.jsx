@@ -1,12 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { auth } from '../../utils/auth';
 
 export default function Header() {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const authenticated = auth.isAuthenticated();
+      const userData = auth.getUser();
+      setIsAuthenticated(authenticated);
+      setUser(userData);
+    };
+
+    // Initial check
+    checkAuth();
+    
+    // Listen for custom auth change events
+    const handleAuthChange = () => {
+      checkAuth();
+    };
+    
+    window.addEventListener('authStateChanged', handleAuthChange);
+    
+    // Also check periodically as backup (more frequent)
+    const interval = setInterval(checkAuth, 500); // Check every 500ms
+    
+    return () => {
+      window.removeEventListener('authStateChanged', handleAuthChange);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
@@ -68,6 +98,19 @@ export default function Header() {
             >
               Contact
             </Link>
+            {/* Dashboard link - only show when authenticated */}
+            {isAuthenticated && (
+              <Link 
+                href="/dashboard" 
+                className={`transition-colors ${
+                  pathname.startsWith('/dashboard') 
+                    ? 'text-primary dark:text-white border-b-2 border-primary pb-1' 
+                    : 'hover:text-primary dark:hover:text-white'
+                }`}
+              >
+                Dashboard
+              </Link>
+            )}
           </nav>
 
           {/* Action Buttons */}
@@ -86,9 +129,26 @@ export default function Header() {
             </button>
 
             {/* User Account */}
-            <Link href="/signin" className="p-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white">
-              <span className="material-icons-outlined">person_outline</span>
-            </Link>
+            {isAuthenticated ? (
+              <div className="flex items-center space-x-3">
+                <button 
+                  onClick={auth.logout}
+                  className="p-2 text-slate-600 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400"
+                  title="Logout"
+                >
+                  <span className="material-icons-outlined">logout</span>
+                </button>
+                {user && (
+                  <span className="hidden md:block text-xs text-slate-600 dark:text-slate-400">
+                    Hi, {user.name.split(' ')[0]}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <Link href="/signin" className="p-2 text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-white">
+                <span className="material-icons-outlined">person_outline</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

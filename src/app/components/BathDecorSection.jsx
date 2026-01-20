@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function BathDecorSection() {
   const products = [
@@ -52,9 +53,9 @@ export default function BathDecorSection() {
           <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-8">
             Check our exclusive collection of bath decor
           </p>
-          <a className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-10 py-3 hover:bg-primary hover:text-white transition-all inline-block rounded" href="#">
+          <Link href="/products" className="text-[10px] font-bold uppercase tracking-widest border border-slate-200 dark:border-slate-700 px-10 py-3 hover:bg-primary hover:text-white transition-all inline-block rounded">
             View More Product
-          </a>
+          </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product, index) => (
